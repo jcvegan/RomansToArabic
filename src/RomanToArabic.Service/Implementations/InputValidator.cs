@@ -11,7 +11,7 @@ namespace RomanToArabic.Service.Implementations
 
         public bool IsRomanNumber(string inputText)
         {
-            if(string.IsNullOrEmpty(inputText))
+            if(string.IsNullOrEmpty(inputText) || string.IsNullOrWhiteSpace(inputText))
                 throw new ArgumentNullException("Input cannot be null or empty");
 
             var regex = new Regex(RomanNumberPattern);

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RomanToArabic.Client": {
+      "commandName": "Project",
+      "commandLineArgs": "MCMLXXXVIII"
+    }
+  }
+}

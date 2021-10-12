@@ -20,7 +20,7 @@ namespace RomanToArabic.Service.Implementations
         public int Convert(string romanInput)
         {
             if (string.IsNullOrEmpty(romanInput) || string.IsNullOrWhiteSpace(romanInput))
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("Input text should not be empty");
 
             romanInput = romanInput.ToUpperInvariant();
 

@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
 using RomanToArabic.Service.Implementations;
 using RomanToArabic.Service.Interfaces;
-using RomanToArabic.Service.Interfaces.Implementations;
+using System;
 using System.Collections.Generic;
 
 namespace RomanToArabic.Service.Tests
 {
-    public class ArabicParserTset
+    public class RomanToArabicConverterTest
     {
         private InputValidator _inputValidator;
         private IRomanToArabicConverter _arabicParser;
@@ -28,6 +28,30 @@ namespace RomanToArabic.Service.Tests
             _inputValidator = new InputValidator();
 
             _arabicParser = new RomanToArabicConverter(_inputValidator, dictionary);
+        }
+
+        [Test(Description = "Send null value")]
+        public void TestNullValue()
+        {
+            Assert.Throws<ArgumentNullException>(() => _arabicParser.Convert(null));
+        }
+
+        [Test(Description = "Send empty value")]
+        public void TestEmptyValue()
+        {
+            Assert.Throws<ArgumentNullException>(() => _arabicParser.Convert(""));
+        }
+
+        [Test(Description = "Send whitespace value")]
+        public void TestWhiespaceValue()
+        {
+            Assert.Throws<ArgumentNullException>(() => _arabicParser.Convert(" "));
+        }
+
+        [Test(Description = "Send non-roman value")]
+        public void TestNonRomanValue()
+        {
+            Assert.Throws<ArgumentException>(() => _arabicParser.Convert("Juan"));
         }
 
         [TestCase("I", 1, Description = "Test simple letter: I")]

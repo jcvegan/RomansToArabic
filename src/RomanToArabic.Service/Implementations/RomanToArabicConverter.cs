@@ -19,7 +19,7 @@ namespace RomanToArabic.Service.Implementations
 
         public int Convert(string romanInput)
         {
-            if (string.IsNullOrEmpty(romanInput))
+            if (string.IsNullOrEmpty(romanInput) || string.IsNullOrWhiteSpace(romanInput))
                 throw new ArgumentNullException();
 
             romanInput = romanInput.ToUpperInvariant();
@@ -27,7 +27,7 @@ namespace RomanToArabic.Service.Implementations
             var isRomanNumber = _inputValidator.IsRomanNumber(romanInput);
 
             if (!isRomanNumber)
-                throw new Exception("Invalid roman value");
+                throw new ArgumentException("Invalid roman value");
             
             if (romanInput.Length == 1)
                 return _romanNumeralsToArabicNumberMap[romanInput.First()];

@@ -3,7 +3,7 @@ using RomanToArabic.Service.Implementations;
 using RomanToArabic.Service.Interfaces;
 using System.Collections.Generic;
 
-namespace RomanToArabic.Service
+namespace RomanToArabic.Service.Installer
 {
     public static class ServiceCollectionExtension
     {
